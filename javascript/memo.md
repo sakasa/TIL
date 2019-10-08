@@ -6,3 +6,6 @@
 - https://tech.mokelab.com/web/js/dataset.html
 - https://qiita.com/kazu56/items/3b78b1666670514f0ab1
   - jsonは正しく書かないと、文字列で取得される。
+
+## 可変長引数
+https://takamints.hatenablog.jp/entry/varg-on-es6-modern-javascript
