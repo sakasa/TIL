@@ -1,11 +1,17 @@
 # PHP
 
 ## Laravel
-.envファイルの値に `#` を使用する場合はダブルクオートで囲む
+### .envファイルの値に `#` を使用する場合はダブルクオートで囲む
 例
 ```sh
 DB_PASS=12Ab#;xx04   # `#` 以降がコメントになって使用できない
 DB_PASS="12Ab#;xx04" # 正しく認識される
+```
+
+### Laravelのバージョンを指定してプロジェクトを作成
+```bash
+# composer create-project "laravel/laravel=バージョン" プロジェクト名
+composer create-project "laravel/laravel=6.*" sample-project名
 ```
 
 ## dockerのAmazonLinux2にhttpdとphpをインストールしてapacheを起動した際にエラーが発生したときの対処
