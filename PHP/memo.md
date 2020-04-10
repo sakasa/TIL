@@ -14,7 +14,7 @@ DB_PASS="12Ab#;xx04" # 正しく認識される
 composer create-project "laravel/laravel=6.*" sample-project名
 ```
 
-## プロジェクトを `git clone` したあとにやること
+### プロジェクトを `git clone` したあとにやること
 参考：http://vdeep.net/laravel-git-clone
 1. ライブラリの取得
 ```bash
@@ -46,6 +46,40 @@ composer dump-autoload
 ```bash
 php artisan migrate:refresh --seed
 ```
+
+### `.env` 反映されないとき
+```bash
+php artisan config:cache
+```
+
+### モデルインスタンスの作成
+```bash
+php artisan make:model {Model}
+php artisan make:model {Model} -m // migrationファイルも作成
+```
+
+### マイグレーションの作成
+```bash
+php artisan make:migration create_{Model}s_table
+```
+
+### マイグレーション実行
+```bash
+php artisan migrate
+```
+
+### コントローラ作成
+```bash
+php artisan make:controller {Controller}
+```
+
+### bladeでテキストエリアで送信された文字を表示する場合
+```php
+{! nl2br(e($param)) !}
+```
+- `e()` ・・・HTMLエスケープ
+- `nl2br` ・・・改行を `<br>` に変換
+- `{!` 〜 `!}` ・・・HTMLエスケープ無しで表示
 
 
 ## dockerのAmazonLinux2にhttpdとphpをインストールしてapacheを起動した際にエラーが発生したときの対処
