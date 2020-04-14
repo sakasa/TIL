@@ -63,9 +63,27 @@ php artisan make:model {Model} -m // migrationファイルも作成
 php artisan make:migration create_{Model}s_table
 ```
 
-### マイグレーション実行
+### マイグレーション
+#### マイグレーション実行
 ```bash
 php artisan migrate
+```
+#### 現在の状態
+```bash
+php artisan migrate:status
+```
+#### 削除
+```bash
+php artisan migrate:reset
+```
+#### 作り直し
+```bash
+php artisan migrate:fresh
+```
+#### 作り直したあとのキャッシュクリア
+```bash
+php artisan cache:clear
+php artisan config:clear
 ```
 
 ### コントローラ作成
@@ -73,14 +91,26 @@ php artisan migrate
 php artisan make:controller {Controller}
 ```
 
-### bladeでテキストエリアで送信された文字を表示する場合
+### ミドルウェアの作成
+```bash
+php artisan make:middleware {Middleware}
+```
+
+
+### blade
+#### テキストエリアで送信された文字を表示する
 ```php
 {! nl2br(e($param)) !}
 ```
-- `e()` ・・・HTMLエスケープ
-- `nl2br` ・・・改行を `<br>` に変換
-- `{!` 〜 `!}` ・・・HTMLエスケープ無しで表示
+  - `e()` ・・・HTMLエスケープ
+  - `nl2br` ・・・改行を `<br>` に変換
+  - `{!` 〜 `!}` ・・・HTMLエスケープ無しで表示
 
+#### `Form` クラスを使う
+https://laravelcollective.com/docs/6.0/html
+```bash
+composer require laravelcollective/html
+```
 
 ## dockerのAmazonLinux2にhttpdとphpをインストールしてapacheを起動した際にエラーが発生したときの対処
 - エラー： `ERROR: [pool www] failed to read the ACL of the socket '/run/php-fpm/www.sock': Operation not supported (95)`
