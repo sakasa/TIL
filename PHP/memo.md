@@ -58,12 +58,11 @@ php artisan make:model {Model}
 php artisan make:model {Model} -m // migrationファイルも作成
 ```
 
-### マイグレーションの作成
+### マイグレーション
+#### マイグレーションの作成
 ```bash
 php artisan make:migration create_{Model}s_table
 ```
-
-### マイグレーション
 #### マイグレーション実行
 ```bash
 php artisan migrate
