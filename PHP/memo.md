@@ -90,11 +90,27 @@ php artisan config:clear
 php artisan make:controller {Controller}
 ```
 
+### フォームリクエストの作成
+```bash
+php artisan make:request {FormRequest}
+```
+#### コントローラで使う場合
+```bash
+public function index({FormRequest} $request) // コントローラのメソッドの引数で受け取る
+```
+
+
 ### ミドルウェアの作成
 ```bash
 php artisan make:middleware {Middleware}
 ```
 
+### セッション
+#### DBセッションにする場合のテーブル作成
+```bash
+php artisan session:table
+php artisan migrate
+```
 
 ### blade
 #### テキストエリアで送信された文字を表示する
