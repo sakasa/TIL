@@ -99,6 +99,12 @@ php artisan make:request {FormRequest}
 public function index({FormRequest} $request) // コントローラのメソッドの引数で受け取る
 ```
 
+### バリデーションルールの作成
+https://laravel.com/docs/6.x/validation#custom-validation-rules
+```bash
+php artisan make:rule {Rule}
+```
+
 
 ### ミドルウェアの作成
 ```bash
