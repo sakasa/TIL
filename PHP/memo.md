@@ -133,6 +133,33 @@ https://laravelcollective.com/docs/6.0/html
 composer require laravelcollective/html
 ```
 
+### メール送信クラスの作成
+https://laravel.com/docs/7.x/mail#generating-mailables
+```bash
+php artisan make:mail {Mail}
+```
+#### コントローラでの使用
+```php
+use Illuminate\Support\Facades\Mail;
+
+Mail::to({toAddress})->send(new {Mail}());
+```
+
+### サービスプロバイダの作成
+https://laravel.com/docs/6.x/providers
+```bash
+php artisan make:provider {ServiceProvider}
+```
+
+## AWS Sdkの使用
+https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html
+```bash
+composer require aws/aws-sdk-php
+```
+
+
+### 
+
 ## dockerのAmazonLinux2にhttpdとphpをインストールしてapacheを起動した際にエラーが発生したときの対処
 - エラー： `ERROR: [pool www] failed to read the ACL of the socket '/run/php-fpm/www.sock': Operation not supported (95)`
 - 参考：http://blog.livedoor.jp/sire2/archives/51264184.html
