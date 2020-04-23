@@ -105,6 +105,20 @@ public function index({FormRequest} $request) // コントローラのメソッ�
 php artisan make:middleware {Middleware}
 ```
 
+### プロバイダの作成
+```bash
+php artisan make:provider {Provider}
+```
+`conf/app.php` に追加して有効化
+```
+'providers' => [
+  ...
+  App\Providers\{Provider}::class,
+  ...
+];
+```
+
+
 ### セッション
 #### DBセッションにする場合のテーブル作成
 ```bash
