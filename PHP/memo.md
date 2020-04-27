@@ -151,15 +151,31 @@ https://laravel.com/docs/6.x/providers
 php artisan make:provider {ServiceProvider}
 ```
 
-## AWS Sdkの使用
+### バリデーション用言語ファイル `resources/lang/ja/validation.php` からのメッセージの取得
+```php
+trans('validation.custom.xxx.yyy');
+```
+- 埋め込み文字列を使用する場合
+```php
+# resources/lang/ja/validation.php
+return 'custom' => [
+  'xxx' => [
+    'yyy' => 'custom :attribute message.'
+  ],
+];
+```
+```php
+trans('validation.custom.xxx.yyy', ['attribute', '埋め込み文字列']);
+```
+
+### AWS Sdkの使用
 https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html
 ```bash
 composer require aws/aws-sdk-php
 ```
 
 
-### 
-
+---
 ## dockerのAmazonLinux2にhttpdとphpをインストールしてapacheを起動した際にエラーが発生したときの対処
 - エラー： `ERROR: [pool www] failed to read the ACL of the socket '/run/php-fpm/www.sock': Operation not supported (95)`
 - 参考：http://blog.livedoor.jp/sire2/archives/51264184.html
