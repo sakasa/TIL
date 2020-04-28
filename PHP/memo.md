@@ -168,6 +168,19 @@ return 'custom' => [
 trans('validation.custom.xxx.yyy', ['attribute', '埋め込み文字列']);
 ```
 
+### テストの作成
+```bash
+php artisan make:test {Test}
+```
+上記の場合は `tests/Feature` ディレクトリにファイルが作成される。 `tests/Unit` ディレクトリ内に作成する場合
+```bash
+php artisan make:test {Test} --unit
+```
+#### テストの実行
+```bash
+vendor/bin/phpunit
+```
+
 ### AWS Sdkの使用
 https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html
 ```bash
