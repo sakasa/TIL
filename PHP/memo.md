@@ -79,6 +79,10 @@ php artisan migrate:reset
 ```bash
 php artisan migrate:fresh
 ```
+#### テスト環境
+```bash
+php artisan migrate --env=testing
+```
 #### 作り直したあとのキャッシュクリア
 ```bash
 php artisan cache:clear
@@ -187,6 +191,14 @@ https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_insta
 composer require aws/aws-sdk-php
 ```
 
+
+---
+## AWSでELB越しにアクセス元のIPを取得
+参考：https://qiita.com/niisan-tokyo/items/264d4e8584ed58536bf4
+```php
+$_SERVER["HTTP_X_FORWARDED_FOR"]
+```
+経由しているIPが配列で入っている
 
 ---
 ## dockerのAmazonLinux2にhttpdとphpをインストールしてapacheを起動した際にエラーが発生したときの対処
