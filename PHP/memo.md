@@ -79,6 +79,10 @@ php artisan migrate:reset
 ```bash
 php artisan migrate:fresh
 ```
+#### テスト環境
+```bash
+php artisan migrate --env=testing
+```
 #### 作り直したあとのキャッシュクリア
 ```bash
 php artisan cache:clear
@@ -97,6 +101,12 @@ php artisan make:request {FormRequest}
 #### コントローラで使う場合
 ```bash
 public function index({FormRequest} $request) // コントローラのメソッドの引数で受け取る
+```
+
+### バリデーションルールの作成
+https://laravel.com/docs/6.x/validation#custom-validation-rules
+```bash
+php artisan make:rule {Rule}
 ```
 
 
@@ -141,6 +151,70 @@ https://laravelcollective.com/docs/6.0/html
 composer require laravelcollective/html
 ```
 
+### メール送信クラスの作成
+https://laravel.com/docs/7.x/mail#generating-mailables
+```bash
+php artisan make:mail {Mail}
+```
+#### コントローラでの使用
+```php
+use Illuminate\Support\Facades\Mail;
+
+Mail::to({toAddress})->send(new {Mail}());
+```
+
+### サービスプロバイダの作成
+https://laravel.com/docs/6.x/providers
+```bash
+php artisan make:provider {ServiceProvider}
+```
+
+### バリデーション用言語ファイル `resources/lang/ja/validation.php` からのメッセージの取得
+```php
+trans('validation.custom.xxx.yyy');
+```
+- 埋め込み文字列を使用する場合
+```php
+# resources/lang/ja/validation.php
+return 'custom' => [
+  'xxx' => [
+    'yyy' => 'custom :attribute message.'
+  ],
+];
+```
+```php
+trans('validation.custom.xxx.yyy', ['attribute', '埋め込み文字列']);
+```
+
+### テストの作成
+```bash
+php artisan make:test {Test}
+```
+上記の場合は `tests/Feature` ディレクトリにファイルが作成される。 `tests/Unit` ディレクトリ内に作成する場合
+```bash
+php artisan make:test {Test} --unit
+```
+#### テストの実行
+```bash
+vendor/bin/phpunit
+```
+
+### AWS Sdkの使用
+https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html
+```bash
+composer require aws/aws-sdk-php
+```
+
+
+---
+## AWSでELB越しにアクセス元のIPを取得
+参考：https://qiita.com/niisan-tokyo/items/264d4e8584ed58536bf4
+```php
+$_SERVER["HTTP_X_FORWARDED_FOR"]
+```
+経由しているIPが配列で入っている
+
+---
 ## dockerのAmazonLinux2にhttpdとphpをインストールしてapacheを起動した際にエラーが発生したときの対処
 - エラー： `ERROR: [pool www] failed to read the ACL of the socket '/run/php-fpm/www.sock': Operation not supported (95)`
 - 参考：http://blog.livedoor.jp/sire2/archives/51264184.html
