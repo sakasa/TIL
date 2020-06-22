@@ -37,3 +37,7 @@ import module1.py
 module1.method()
 ```
 
+# 高速化
+参考：https://www.medi-08-data-06.work/entry/speedup_python
+
+
