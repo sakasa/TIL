@@ -38,3 +38,18 @@ https://github.com/taishi-i/nagisa
 ```bash
 pip install nagisa
 ```
+
+## 可視化
+
+### nlplot
+https://github.com/takapy0210/nlplot
+
+参考：https://www.kaggle.com/sishihara/aibo-analysis
+
+* install
+```bash
+pip install nlplot
+
+# Gitからmasterをインストール
+pip install git+https://github.com/takapy0210/nlplot.git
+```
