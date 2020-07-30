@@ -24,3 +24,19 @@
   "trial_period_days": 30
 }
 ```
+- クーポンは `subscription_data.coupon` で渡す
+```
+"line_items": [
+  {
+    "price": "price_H5ggYwtDq4fbrJ",
+    "quantity": 2,
+    "tax_rate": ["tax_123XYZ"]
+  }
+],
+"subscription_data": {
+  "coupon": "aXaXaX"
+}
+```
+- Stripe Checkputは「標準の料金体系」以外はサポート外
+  - APIのエラーレスポンス `Checkout does not support package pricing, aka ``transform_quantity`` in ``line_items[price][0]``.`
+
