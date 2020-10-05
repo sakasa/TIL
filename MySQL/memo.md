@@ -57,3 +57,20 @@ ORDER BY
     (data_length+index_length) DESC;
 ```
 参考：https://qiita.com/ikenji/items/b868877492fee60d85ce
+
+### コネクション数などの確認
+参考: https://qiita.com/snaka/items/b6e7500c96e04c131d9e
+
+- 現在の接続しているスレッド数
+```sql
+show status like 'Threads_connected';
+```
+```sql
+SELECT * FROM information_schema.PROCESSLIST;
+```
+
+- プロセスリスト（処理中の接続）
+```sql
+show processlist;
+```
+
