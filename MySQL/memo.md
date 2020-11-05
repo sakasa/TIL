@@ -74,3 +74,28 @@ SELECT * FROM information_schema.PROCESSLIST;
 show processlist;
 ```
 
+### テーブル定義の確認
+- CREATE TABLE文を取得
+```sql
+SHOW CREATE TABLE tablename;
+```
+
+- SQLの結果で取得
+```sql
+SHOW FULL COLUMNS FROM tablename;
+```
+```sql
+DESC tablename;
+```
+
+### テーブルコピー
+- 定義をコピーしてデータをインサート
+```sql
+CREATE TABLE newtable LIKE oldtable;
+INSERT INTO newtable SELECT * FROM oldtable;
+```
+
+- データ（と定義）を使ってコピー
+```sql
+CREATE TABLE newtable SELECT * FROM oldtable;
+```
