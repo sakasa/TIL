@@ -42,3 +42,13 @@ curl https://ip-ranges.amazonaws.com/ip-ranges.json \
   |jq 'sort_by(.region, .service, .ip_prefix) | .[]' \
   |jq --arg region ${AWS_REGION_PREFIX} --arg service ${AWS_SERVICE_PREFIX} -r 'select(has("ip_prefix")) |select(.region |test($region)) |select(.service |test($service)) |[.region, .service, .ip_prefix, .network_border_group] |@csv'
 ```
+
+### リージョン一覧
+```bash
+curl https://ip-ranges.amazonaws.com/ip-ranges.json |jq -r '.prefixes' |jq 'sort_by(.region) |.[] |.region' |jq -s 'unique |.[]'
+```
+
+### サービス一覧
+```bash
+curl https://ip-ranges.amazonaws.com/ip-ranges.json |jq -r '.prefixes' |jq 'sort_by(.service) |.[] |.service' |jq -s 'unique |.[]'
+```
