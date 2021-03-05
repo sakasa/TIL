@@ -1,8 +1,7 @@
 - https://redocly.github.io/redoc/
 - https://github.com/Redocly/redoc
 
-- redoc-cliでyamlからhtmlを生成
-
+### redoc-cliでyamlからhtmlを生成
 ```
 # on local
 $ ls
