@@ -28,3 +28,10 @@ apt-get install procps
 ```
 ENV DEBIAN_FRONTEND=noninteractive
 ```
+
+## Mac M1でdocker buildする場合
+- `--platform linux/amd64` を引数で渡す
+
+```
+docker build --platform linux/amd64 -t .
+```
